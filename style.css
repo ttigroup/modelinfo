@@ -133,7 +133,7 @@ tr td:nth-child(2),
 tr td:nth-child(3)
 tr td:nth-child(8)
 {
-  width:12%;
+  width:13%;
   margin: 0px;
   padding: 0px;
   display: flex;
@@ -151,7 +151,7 @@ tr td:nth-child(5),
 tr td:nth-child(6),
 tr td:nth-child(7)
  {
-  width: 7%;
+  width: 6%;
   margin: 0px;
   padding: 0px;
   display: flex;
