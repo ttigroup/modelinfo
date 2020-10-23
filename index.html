@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- Nar barr -->
+        <div class="row" class="nar-bar">
+            <ul class="limenu">
+                <li><a class="active" href="http://minhkhacld.github.io/smv">Home</a></li>
+                <li><a href="http://minhkhacld.github.io/maytinh">Incentive</a></li>
+                <li><a href="http://minhkhacld.github.io/copt">COPT</a></li>
+                <li><a href="http://minhkhacld.github.io/tudien">Từ điển</a></li>
+                <!-- <li><a href="http://minhkhacld.github.io/smv">SVM</a></li> -->
+                <!-- <li><a href="#contact">Contact</a></li> -->
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <h1><i class="fa fa-clock" aria-hidden="true"></i> MODEL INFORMATION</h1>
+            <div class="form-group">
+                <label for=""><i class="fa fa-star" aria-hidden="true"></i> Type Model</label>
+                <input type="text" class="form-control" name="" id="input" aria-describedby="helpId"
+                    placeholder="Input model you want to search">
+            </div>
+        </div>
+        <div class="row">
+            <button onclick=scroll_bottom();>Jump to bottom</button>
+        </div>
+        <!-- <div class="row">
+            <a class="link" href="http://minhkhacld.github.io/maytinh/"><i class="far fa-hand-point-down"></i> Ấn để
+                chuyển đến máy tính Incentive</a>
+        </div> -->
+        <div class="row" id="tabledata">
+            <table>
+                <tbody id="data">
+                </tbody>
+            </table>
+        </div>
+        <!-- hidden data -->
+        <div class="row" id="newtabledata" style="display:none">
+            <table>
+                <tbody id="newdata">
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <button onclick=scroll_top();>Jump to top</button>
+        </div>
+
+    </div>
+    <div class="container" id="bottom">
+        <div class="row">
+            <div class="col">
+                <div class="social-icons">
+                    <a class="social-icon" href="https://www.linkedin.com/in/kha-ph%E1%BA%A1m-minh-58aa68153/"><i
+                            class="fab fa-linkedin-in"></i></a><a class="social-icon"
+                        href="https://www.instagram.com/minhkhacld/"><i class="fab fa-instagram"></i></a><a
+                        class="social-icon" href="https://www.facebook.com/phamminh.kha"><i
+                            class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" id="footer">
+                Model Infor Finder App<br />
+                Tel: 0355210716, Email: pmkha92@gmail.com. <br />
+                ©Khapham 2020. All rights reserved.
+            </div>
+        </div>
+        
+    </div>
+    
+
+    <script type="text/javascript">
+        var spData = null;
+        function doData(json) {
+            spData = json.feed.entry;
+            // var data_origin = json.feed.entry
+            // var spData = data_origin.reverse()
+            console.log(spData);
+            console.log(spData[0]['content']['$t']);
+            console.log(spData[1]['content']['$t']);
+            console.log(spData[2]['content']['$t']);
+            console.log(spData[3]['content']['$t']);
+            console.log(spData[4]['content']['$t']);
+            console.log(spData[5]['content']['$t']);
+            console.log(spData[6]['content']['$t']);
+            console.log(spData[7]['content']['$t']);
+            console.log(spData[8]['content']['$t']);
+            console.log(spData[9]['content']['$t']);
+            console.log(spData[10]['content']['$t']);
+            console.log(spData[11]['content']['$t']);
+            // Code thêm tiêu đề
+            $('#data').append('<tr data-style=" data-smv=" id="tieude" style="height:3rem;font-size:15px; font-weight:bold;margin-top:8px; margin-bottom:8px; background-color: darkcyan;color:white;overflow:hidden;text-overflow:ellipsis"><td>Customer</td><td>New/Old</td><td>Product</td><td>Line</td><td>Planner</td><td>UPH</td><td>Manpower</td><td>Model</td><td>ITEM_DESCRIPTION</td></tr>');
+
+            for (i = 9; i < spData.length; i += 9) {
+            // for (i = 4; i < 200; i += 4) {
+                $('#data').append('<tr id ="dulieu" data-style="' + spData[(i+7)]['content']['$t'] + '" data-smv="' + spData[(i + 2)]['content']['$t'] + '"><td>' + spData[i]['content']['$t'] + '</td><td>' + spData[(i + 1)]['content']['$t'] + '</td><td>' + spData[(i + 2)]['content']['$t'] + '</td><td>' + spData[(i + 3)]['content']['$t'] + '</td><td>' + spData[(i + 4)]['content']['$t'] +'</td><td>' + spData[(i + 5)]['content']['$t'] +'</td><td>' + spData[(i + 6)]['content']['$t'] +'</td><td>' + spData[(i + 7)]['content']['$t'] +'</td><td>' + spData[(i + 8)]['content']['$t'] +'</td></tr>');
+            }
+            // for (i = 4; i < spData.length; i += 4) {
+            //     $('#newdata').append('<tr id ="newdulieu" data-style="' + spData[i]['content']['$t'] + '" newdata-smv="' + spData[(i + 2)]['content']['$t'] + '"><td>' + spData[i]['content']['$t'] + '</td><td>' + spData[(i + 1)]['content']['$t'] + '</td><td>' + spData[(i + 2)]['content']['$t'] + '</td><td>' + spData[(i + 3)]['content']['$t'] + '</td></tr>');
+            // }
+        }
+        $(document).ready(function () {
+            $('body').on('click', '#show', function () {
+                // if ($('#tabledata').css('display') == 'flex') {
+                //     $('#tabledata').css('display', 'none');
+                // } else {
+                //console.log($('#tabledata').css('display'));
+                $('#tabledata').css('display', 'flex')
+
+                // }
+            });
+            $('body').on('keyup', '#input', function () {
+                $('#tabledata').css('display', 'flex');
+                let search = $(this).val().toLowerCase();
+                for (let i = 0; i < $('tr').length; i++) {
+                    // for (let i = 0; i < spData.length; i++) {
+                    $($('tr')[i]).css('display', 'flex');
+                    // let style = $($('tr')[i]).attr('data-style').toLowerCase();
+                    let style = $($('tr')[i]).attr('data-style').toLowerCase();
+                    //let smv = $($('tr')[i]).attr('data-smv');
+                    if (style.includes(search)) {
+                        $($('tr')[i]).css('display', 'flex');
+                        document.getElementById("tieude").style.display = "flex"
+                    } else {
+                        $($('tr')[i]).css('display', 'none');
+                    }
+
+                }
+            })
+        });
+        function scroll_bottom(){
+            window.scrollBy(0, 500000)
+        }
+        function scroll_top(){
+            window.scrollBy(0, -500000)
+        }
+    </script>
+    <script
+        src="https://spreadsheets.google.com/feeds/cells/1kfcNBmT07k0UZ6if0U7BAnna0ZwbQ2nmPu3QxE_TnZE/2/public/values?alt=json-in-script&callback=doData"></script>
+</body>
+
+</html>
