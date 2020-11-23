@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
         
         <div class="row" class="nar-bar">
             <ul class="limenu">
@@ -23,7 +23,7 @@
                 <li><a href="#about">About</a></li>
             </ul>
         </div>
-    </div>
+    </div> -->
     <div class="container">
         <div class="row">
             <h1><i class="fa fa-clock" aria-hidden="true"></i> MODEL INFORMATION</h1>
@@ -101,11 +101,11 @@
             console.log(spData[10]['content']['$t']);
             console.log(spData[11]['content']['$t']);
             // Code thêm tiêu đề
-            $('#data').append('<tr data-style=" data-smv=" id="tieude" style="height:3rem;font-size:15px; font-weight:bold;margin-top:8px; margin-bottom:8px; background-color: darkcyan;color:white;overflow:hidden;text-overflow:ellipsis"><td>Cust</td><td>N/O</td><td>Product</td><td>Line</td><td>Planner</td><td>UPH</td><td>MP</td><td>Model</td><td>ITEM_DESCRIPTION</td></tr>');
+            $('#data').append('<tr data-style=" data-smv=" id="tieude" style="height:3rem;font-size:15px; font-weight:bold;margin-top:8px; margin-bottom:8px; background-color: darkcyan;color:white;overflow:hidden;text-overflow:ellipsis"><td>Product</td><td>line</td><td>UPH</td><td>MP</td><td>Model</td><td>Discription</td><td>IE</td></tr>');
 
-            for (i = 9; i < spData.length; i += 9) {
+            for (i = 7; i < spData.length; i += 7) {
             // for (i = 4; i < 200; i += 4) {
-                $('#data').append('<tr id ="dulieu" data-style="' + spData[(i+7)]['content']['$t'] + '" data-smv="' + spData[(i + 2)]['content']['$t'] + '"><td>' + spData[i]['content']['$t'] + '</td><td>' + spData[(i + 1)]['content']['$t'] + '</td><td>' + spData[(i + 2)]['content']['$t'] + '</td><td>' + spData[(i + 3)]['content']['$t'] + '</td><td>' + spData[(i + 4)]['content']['$t'] +'</td><td>' + spData[(i + 5)]['content']['$t'] +'</td><td>' + spData[(i + 6)]['content']['$t'] +'</td><td>' + spData[(i + 7)]['content']['$t'] +'</td><td>' + spData[(i + 8)]['content']['$t'] +'</td></tr>');
+                $('#data').append('<tr id ="dulieu" data-style="' + spData[(i+4)]['content']['$t'] + '" data-smv="' + spData[(i + 2)]['content']['$t'] + '"><td>' + spData[i]['content']['$t'] + '</td><td>' + spData[(i + 1)]['content']['$t'] + '</td><td>' + spData[(i + 2)]['content']['$t'] + '</td><td>' + spData[(i + 3)]['content']['$t'] + '</td><td>' + spData[(i + 4)]['content']['$t'] +'</td><td>' + spData[(i + 5)]['content']['$t'] +'</td><td>' + spData[(i + 6)]['content']['$t'] +'</td></tr>');
             }
             // for (i = 4; i < spData.length; i += 4) {
             //     $('#newdata').append('<tr id ="newdulieu" data-style="' + spData[i]['content']['$t'] + '" newdata-smv="' + spData[(i + 2)]['content']['$t'] + '"><td>' + spData[i]['content']['$t'] + '</td><td>' + spData[(i + 1)]['content']['$t'] + '</td><td>' + spData[(i + 2)]['content']['$t'] + '</td><td>' + spData[(i + 3)]['content']['$t'] + '</td></tr>');
@@ -132,7 +132,7 @@
                     //let smv = $($('tr')[i]).attr('data-smv');
                     if (style.includes(search)) {
                         $($('tr')[i]).css('display', 'flex');
-                        document.getElementById("tieude").style.display = "flex"
+                        document.getElementById("tieude").style.display = "sticky"
                     } else {
                         $($('tr')[i]).css('display', 'none');
                     }
